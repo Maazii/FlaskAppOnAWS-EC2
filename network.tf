@@ -1,5 +1,5 @@
-resource "aws_vpc" "test-env" {
-  cidr_block = "10.0.0.0/16"
+resource "aws_vpc" "test-env" { // aws_vpc represents our Virtual Private Cloud or Network
+  cidr_block = "10.0.0.0/16"  // This is the address range
   enable_dns_hostnames = true
   enable_dns_support = true
   tags = {
@@ -7,7 +7,7 @@ resource "aws_vpc" "test-env" {
   }
 }
 
-resource "aws_eip" "ip-test-env" {
+resource "aws_eip" "ip-test-env" { // aws_eip represents the elastic IP
   instance = "${aws_instance.test-ec2-instance.id}"
   domain   = "vpc"
 }
