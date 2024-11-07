@@ -47,8 +47,8 @@ working directory.
 
 Once done open a shell terminal and guide it to the directory where you have the terraform files and the python file and execute `terraform init`
 
-Once initialized successfully execute `terraform validate`. This verifies if there are any bugs in all the **.tf** files you have. And I know your mind right now might be a bit overwhelmed with all the files and thinking wait a minute, do I need to execute them inidividually or not, or which one I shall execute first.
+Once initialized successfully execute `terraform validate`. This verifies if there are any bugs in all the **.tf** files you have. And I know your mind right now might be a bit overwhelmed with all the files and thinking wait a minute, do I need to execute them individually or not, or which one I shall execute first.
 
-Let me reassure you you do not need to worry Terraform will organize all of them for you when it starts working with them.
+Let me reassure you you do not need to worry. Terraform will organize all of them for you when it starts working with them.
 
 So now, if `terraform validate` was successful execute `terraform plan`. This command will provide all the actions Terraform is going to be taking, such as modifications of any resources or creating resources. 
