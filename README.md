@@ -40,7 +40,7 @@ Here you may choose the image or more simply the platform for your server (EC2) 
 Once you find the desired image click on the left tickbox and you will see detailed information pop up below including that image's AMI-ID.
 Keep this AMI-ID stored somewhere for quick access when needed.
 
-## Launching Terraform
+## Launching AWS Resources using Terraform
 
 This is where all the files in this repository will come into play. Download them or simply use a `git pull` whatever you wish into your
 working directory.
@@ -51,4 +51,8 @@ Once initialized successfully execute `terraform validate`. This verifies if the
 
 Let me reassure you you do not need to worry. Terraform will organize all of them for you when it starts working with them.
 
-So now, if `terraform validate` was successful execute `terraform plan`. This command will provide all the actions Terraform is going to be taking, such as modifications of any resources or creating resources. 
+So now, if `terraform validate` was successful execute `terraform plan`. This command will provide all the actions Terraform is going to be taking, such as modifications of any resources or creating resources.
+
+Finally, if there have been no hiccups, execute `terraform apply`. This is the command after which Terraform will start pulling AWS Resources and this is where you can potentially incur costs in some scenarios but obviously due to the setup in this repository it will not be the case.
+
+*However, please note that despite the Free-Tier setup in this repository there limitations to Free-Tier. You would be wise to look them up yourselves but generally what I am aware of they are that after one year of Free-Tier you will incur costs no matter what, and there are also limitations while using Free-Tier for example the EC2 instance provides 750 hours of free usage each month. After which you will have to pay for your usage. Rely on the Cost Explorer in Billing and Cost Management to keep track of your usage.*
