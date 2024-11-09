@@ -6,7 +6,17 @@
 
 - Installed Terraform
 - Installed AWS CLI
-- AWS Account with User Access Keys for AWS Resources and Network Access Keys (.pem file) for EC2 Instance. 
+- AWS Account with User Access Keys for AWS Resources and Network Access Keys (.pem file) for EC2 Instance.
+
+## Table of Contents
+
+1. [AWS Configurations](#aws-configurations)
+2. [Choosing An Image In AWS](#choosing-an-image-in-aws)
+3. [Placing Your Network Keypair In Your Directory](#placing-your-network-keypair-in-your-directory)
+4. [Launching AWS Resources Using Terraform](#launching-aws-resources-using-terraform)
+5. [SSH Into Your EC2 Instance](#ssh-into-your-ec2-instance)
+6. [Adding and Executing the Python File to Your Instance](#adding-and-executing-the-python-file-to-your-instance)
+
 
 ## AWS Configurations
 
@@ -60,7 +70,7 @@ So now, if `terraform validate` was successful execute `terraform plan`. This co
 Upon execution of `terraform plan` you will be asked for three things:
 
 - AMI-ID
-- Keypair Name | **This is NOT the Access Key Pair name. This is what you create in EC2 -> Network and Security -> Key Pairs. When entering the name, make sure to need include any extensions such as .pem or .ppk, just the name of Key Pair as it is in your AWS.
+- Keypair Name | **This is NOT the Access Key Pair name. This is what you create in EC2 -> Network and Security -> Key Pairs. When entering the name, make sure to leave out any extensions such as .pem or .ppk, jand enter just the name of Key Pair as it is in your AWS.
 - InstanceName | This is more of a tag and can be of your choice.
 
 Finally, if there have been no hiccups, execute `terraform apply`. This is the command after which Terraform will start pulling AWS Resources and this is where you can potentially incur costs in some scenarios but obviously due to the setup in this repository it is not the case as of writing this.
@@ -85,6 +95,8 @@ Click on SSH, scroll down to see a command that looks like the following structu
 
 Copy it, paste it into your command prompt. You might be asked to add your key pair to your list, so allow it, and if everything has been correct upto this point you will have
 logged into your EC2 instance!
+
+Just incase you do not know this. You can logout of your instance by simply executing `exit`.
 
 ## Adding and Executing the Python File to Your Instance
 
