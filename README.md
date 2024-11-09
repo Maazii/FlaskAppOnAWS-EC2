@@ -16,6 +16,7 @@
 4. [Launching AWS Resources Using Terraform](#launching-aws-resources-using-terraform)
 5. [SSH Into Your EC2 Instance](#ssh-into-your-ec2-instance)
 6. [Adding and Executing the Python File to Your Instance](#adding-and-executing-the-python-file-to-your-instance)
+7. [Exposition of the Terraform Files Contents](#exposition-of-the-terraform-files-contents)
 
 
 ## AWS Configurations
@@ -135,3 +136,14 @@ and you should see a small **Hello!** on the top left of the page.
 And Voila! You are running the Flask application in your instance.
 
 Curiously enough, the Flask app is not simply a home page saying Hello! as text. It is somewhat more. I will leave that upon your curiousity to discover.
+
+## Exposition of the Terraform Files Contents
+
+This is a section not contributive to the successful implementation of the project but understanding of its parts. If you go through the .tf files you will see
+connections.tf, gateways.tf, network.tf, servers.tf etc. Let me provide a brief as to their functioning and utility to aid your concepts and acquaintance witht the project.
+
+Simply pulling an EC2 instance is not enough to allow you to SSH into it. The machine needs to not only be safely discoverable to the internet but also have a path available to reach it.
+
+Thus we first procure a VPC (Virtual Private Cloud) inside the network.tf file for your instance, and every other resource. A VPC is an isolated network which allows access to your machine but also makes sure that your instance is by default not overly-accessible. After this we have a subnet in the subnets.tf file that is a subsection of the VPC
+we procured, and also which we shall give internet access in order to allow internet access to our machine. Next we have a gateway in our gateways.tf, which is the component that provides public internet access to our resources that is the our subnet, and thus our instance. If we did not procure a gateway from AWS for our instance, an SSH request
+would result in a **Connection Timed Out** error. We then have route tables which guide traffic inside the VPC as well as to and from the internet. Lastly we have our security group in security.tf. It assigns rules for inbound and outbound traffic to our instance, for example if you look inside the file you can see the allowed IP address ranges plus the allowed inbound ports which happen to port 22 and port 5000.
