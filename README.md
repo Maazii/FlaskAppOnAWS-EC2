@@ -77,7 +77,7 @@ Finally, if there have been no hiccups, execute `terraform apply`. This is the c
 
 *However, please note that despite the Free-Tier setup in this repository there are limitations to Free-Tier. You would be wise to look them up yourselves but generally what I am aware of they are that after one year of Free-Tier you will incur costs no matter what, and there are also limitations while using Free-Tier for example the EC2 instance provides 750 hours of free usage each month. After which you will have to pay for your usage. Rely on the Cost Explorer in Billing and Cost Management after logging into AWS to keep track of your usage.*
 
-Once you run `terraform apply` you will be asked a final confirmation here once you will be asked for the three pieces of  information you were asked after running `terraform plan`, type `yes` and enter after which you will your resources being created by Terraform. Terraform will report if there were any errors or if the creation of resources was successful.
+Once you run `terraform apply` you will be asked for the same three pieces of information you were asked after running `terraform plan`, enter them, type `yes` and enter after which you will your resources being created by Terraform. Terraform will report if there were any errors or if the creation of resources was successful.
 
 If successful go to your AWS, then EC2 -> Instances, and check for running instances. You should see the InstanceName you entered after running `terraform plan` and `terraform apply`. To the left of it there will be a tickbox. Tick it and you will see detailed information for your instance pop up below.
 
