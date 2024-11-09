@@ -31,7 +31,7 @@ You will be asked for four things:
 
 Once done your AWS is configured.
 
-## Choosing an Image in AWS
+## Choosing An Image In AWS
 
 Login to AWS. Goto EC2 by searching for EC2 in the search bar. In the navigation menu on the left look for the Images heading and
 then under it AMIs, and go to that. Once inside AMIs look at the left for the dropdown. If it is set to Owned by me then switch to Public Images.
@@ -40,11 +40,11 @@ Here you may choose the image or more simply the platform for your server (EC2) 
 Once you find the desired image click on the left tickbox and you will see detailed information pop up below including that image's AMI-ID.
 Keep this AMI-ID stored somewhere for quick access when needed.
 
-## Placing your Network Keypair in your Directory
+## Placing Your Network Keypair In Your Directory
 
 Make sure that the key pair file (the one with its as extension as .pem) is also present in the same directory as the terraform files and the app.py
 
-## Launching AWS Resources using Terraform
+## Launching AWS Resources Using Terraform
 
 This is where all the files in this repository will come into play. Download them or simply use a `git pull` or whatever you wish into your
 working directory.
@@ -72,3 +72,54 @@ Once you run `terraform apply` you will be asked a final confirmation here once 
 If successful go to your AWS, then EC2 -> Instances, and check for running instances. You should see the InstanceName you entered after running `terraform plan` and `terraform apply`. To the left of it there will be a tickbox. Tick it and you will see detailed information for your instance pop up below.
 
 Congratulations! You have now successfully pulled and ran an AWS-EC2 using Terraform.
+
+## SSH Into Your EC2 Instance
+
+Now this is the crucial step of the project. Despite this, there is not a lot you will have to do in this given the terraform files in the repository take care of everything.
+
+Once again open command prompt and navigate to the directory that has your terraform files. At the same time go to your running instance on AWS, tick the tickbox left on the left
+and you will see that the connect button on the top right is now available. Click on it and you will be taken to a screen wher you will see tabs one which says **SSH**.
+Click on SSH, scroll down to see a command that looks like the following structure:
+
+`ssh -i "path\to\your\network\key" ubuntu@your-machine's-dns`
+
+Copy it, paste it into your command prompt. You might be asked to add your key pair to your list, so allow it, and if everything has been correct upto this point you will have
+logged into your EC2 instance!
+
+## Adding and Executing the Python File to Your Instance
+
+Before you do this, you should update and upgrade packages on your ubuntu machine.
+
+Run:
+
+`sudo apt update && sudo apt upgrade`
+
+Install Python and Pip:
+
+`sudo apt install python3 python3-pip`
+
+You can verify the installation as follows:
+
+`python3 --version`
+`pip3 --version`
+
+After which install Flask and Flask Async as they are the dependencies for the Flask app.
+
+`pip3 install Flask`
+`pip3 install Flask[async]`
+
+Once done, now we shall move onto bringing the app to your instance.
+
+You can rely on `scp`, that is secure copy, which comes with built-in OpenSSH in Windows 10 and 11, to achieve this as follows:
+
+`scp -i /path/to/your-key.pem /path/to/your/flask-app/ ubuntu@<your-ec2-dns>:/home/ubuntu/`
+
+Once added, execute the python file, and goto
+
+`http://<your-ec2-dns>:5000`
+
+and you should see a small **Hello!** on the top left of the page.
+
+And Voila! You are running the Flask application in your instance.
+
+Curiously enough, the Flask app is not simply a home page saying Hello! as text. It is somewhat more. I will leave that upon your curiousity to discover.
