@@ -1,3 +1,5 @@
+// Here are our security groups. You can see I have allowed ports 5000 and 22.
+
 resource "aws_security_group" "ingress-all-test" {
 name = "allow-all-sg"
 vpc_id = "${aws_vpc.test-env.id}"
