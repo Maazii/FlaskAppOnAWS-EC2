@@ -1,3 +1,5 @@
+// The aws_instance you see next to resource is our EC2 server which willl hold the Ubuntu operating system.
+
 resource "aws_instance" "test-ec2-instance" {
   ami = "${var.ami_id}"
   instance_type = "t2.micro"
