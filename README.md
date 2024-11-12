@@ -1,4 +1,4 @@
-# FlaskAppOnAWS-EC2 for Window
+# FlaskAppOnAWS-EC2 for Windows
 
 #### This is a starter project with the goal of running a flask application on an AWS EC2 instance, that was not created on the said EC2 instance.
 

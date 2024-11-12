@@ -7,6 +7,9 @@ resource "aws_vpc" "test-env" { // aws_vpc represents our Virtual Private Cloud 
   }
 }
 
+
+// This is our elastic IP, or simply our IP address.
+
 resource "aws_eip" "ip-test-env" { // aws_eip represents the elastic IP
   instance = "${aws_instance.test-ec2-instance.id}"
   domain   = "vpc"
