@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+        TF_VAR_REGION = "us-east-1"
+        PATH = "C:\\terraform\\terraform.exe"
+    }
     
     stages {
         stage("Checkout Terraform Code"){
@@ -9,12 +14,12 @@ pipeline {
         }
         stage("Initialize Terraform"){
             steps {
-                sh "terraform init"
+                bat "terraform init"
             }
         }
         stage("Validate Configuration"){
             steps {
-                sh "terraform validate"
+                bat "terraform validate"
             }
         }
     }
