@@ -7,19 +7,9 @@ pipeline {
     }
     
     stages {
-        stage("Checkout Terraform Code"){
-            steps {
-                git branch: 'main', changelog: false, credentialsId: 'Github-SSH-Private', poll: false, url: 'git@github.com:Maazii/FlaskAppOnAWS-EC2.git'
-            }
-        }
-        stage("Initialize Terraform"){
-            steps {
-                bat "terraform init"
-            }
-        }
-        stage("Validate Configuration"){
-            steps {
-                bat "terraform validate"
+        stage("Check bat"){
+            steps{
+                bat "echo Hello World!"
             }
         }
     }
