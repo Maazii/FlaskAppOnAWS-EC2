@@ -7,9 +7,9 @@ pipeline {
     }
     
     stages {
-        stage("Check bat"){
+        stage("Check CMD"){
             steps{
-                bat "echo Hello World!"
+                bat "C:\\Windows\\System32\\cmd.exe /c Hello World!"
             }
         }
     }
