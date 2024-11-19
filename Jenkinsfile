@@ -3,13 +3,13 @@ pipeline {
     
     stages {
         stage("Initialize Terraform"){
-            steps{
-                terraform init
+            steps {
+                sh "terraform init"
             }
         }
         stage("Validate Configuration"){
-            steps{
-                terraform validate
+            steps {
+                sh "terraform validate"
             }
         }
     }
