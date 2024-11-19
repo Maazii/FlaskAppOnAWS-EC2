@@ -17,5 +17,15 @@ pipeline {
                 bat "terraform version"
             }
         }
+        stage("Terraform Initialize"){
+            steps{
+                bat "terraform init"
+            }
+        }
+        stage("Terraform Validate"){
+            steps{
+                bat "terraform validate"
+            }
+        }
     }
 }
