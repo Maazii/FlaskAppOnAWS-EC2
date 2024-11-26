@@ -27,10 +27,10 @@ pipeline {
                 bat "terraform validate"
             }
         }
-        stage("Terraform Plan"){
-            steps{
-                bat "terraform plan"
-            }
-        }
+        // stage("Terraform Plan"){
+        //     steps{
+        //         bat "terraform plan"
+        //     }
+        // }
     }
 }
