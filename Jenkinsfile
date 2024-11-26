@@ -17,20 +17,20 @@ pipeline {
                 bat "terraform version"
             }
         }
-        stage("Terraform Initialize"){
-            steps{
-                bat "terraform init"
-            }
-        }
+        // stage("Terraform Initialize"){
+        //     steps{
+        //         bat "terraform init"
+        //     }
+        // }
         stage("Terraform Validate"){
             steps{
                 bat "terraform validate"
             }
         }
-        // stage("Terraform Plan"){
-        //     steps{
-        //         bat "terraform plan"
-        //     }
-        // }
+        stage("Terraform Plan"){
+            steps{
+                bat "terraform plan"
+            }
+        }
     }
 }
