@@ -7,11 +7,6 @@ pipeline {
     // }
     
     stages {
-        stage("Check Terraform Code"){
-            steps{
-                git branch: "main", changelog: false, credentialsId: "Github-SSH-Private", poll: false, url: "git@github.com:Maazii/FlaskAppOnAWS-EC2.git"
-            }
-        }
         stage("Check Terraform Version"){
             steps{
                 bat "terraform version"
